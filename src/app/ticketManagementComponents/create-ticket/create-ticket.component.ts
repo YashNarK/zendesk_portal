@@ -11,7 +11,19 @@ import { AxiosService } from 'src/app/services/axios-service.service';
 // 13656143162386 - mindtree user, 13660615687954 - gmail user
 
 export class CreateTicketComponent {
-  urlPath= '/api/v2/tickets'
+  urlPath= '/api/v2/tickets';
+  description = '';
+  priority = '';
+  subject = '';
+  type='';
+  tags='';
+  requester_id='';
+
+  hvacPartnerIDfieldID='13706916578066';
+  hvacPartnerID='';
+  
+  ticketFormId='13656159167250';
+
   payload =`{
     "ticket": {
       "comment": {
@@ -21,7 +33,15 @@ export class CreateTicketComponent {
       "subject": "No worries. All Good.",
       "type":"problem",
       "tags":"test HVAC_portal_ticket",
-      "requester_id":"13656143162386"
+      "requester_id":"13656143162386",
+      "custom_fields": [
+        {
+            "id": "${this.hvacPartnerIDfieldID}",
+            "value": "My HVAC partners id."
+        }
+    ],
+    "ticket_form_id":"${this.ticketFormId}"
+      
 
     }
   }`
@@ -52,7 +72,7 @@ export class CreateTicketComponent {
     }
 
     getUser(){
-      this.axiosInstance.get('/api/v2/users/search.json?query=naren')
+      this.axiosInstance.get(`/api/v2/users/search.json?query=naren`)
       .then((response)=>{console.log(response)})
       .catch((error)=>{console.error(error)});
     }
