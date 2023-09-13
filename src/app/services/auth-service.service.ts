@@ -10,6 +10,6 @@ export class AuthService {
   getZendeskApiToken():string{
     const user = environment.zendeskUserId;
     const token = environment.zendeskApiToken;
-    return `${user}:${token}`
+    return `${user}/token:${token}`
   }
 }

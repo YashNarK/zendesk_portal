@@ -6,10 +6,54 @@ import { AxiosService } from 'src/app/services/axios-service.service';
   templateUrl: './create-ticket.component.html',
   styleUrls: ['./create-ticket.component.css']
 })
-export class CreateTicketComponent {
+// priority: low, normal, high, urgent
+// type: question, incident, problem, task
+// 13656143162386 - mindtree user, 13660615687954 - gmail user
 
+export class CreateTicketComponent {
+  urlPath= '/api/v2/tickets'
+  payload =`{
+    "ticket": {
+      "comment": {
+        "body": "The smoke is very colorful."
+      },
+      "priority": "normal",
+      "subject": "No worries. All Good.",
+      "type":"problem",
+      "tags":"test HVAC_portal_ticket",
+      "requester_id":"13656143162386"
+
+    }
+  }`
   constructor(private axiosService:AxiosService){}
 
   
+    axiosInstance = this.axiosService.createAxiosInstance();
+    createTicket(){
 
+      this.axiosInstance.post(this.urlPath,this.payload,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'}
+      })
+      .then((response)=>{
+       console.log(response)
+      })
+      .catch((error)=>{
+        console.error(error);
+      })
+    
+    
+    }
+
+    getTicket(){
+      this.axiosInstance.get(this.urlPath)
+      .then((response)=>{console.log(response.data.tickets[0])})
+      .catch((error)=>{console.error(error)})
+    }
+
+    getUser(){
+      this.axiosInstance.get('/api/v2/users/search.json?query=naren')
+      .then((response)=>{console.log(response)})
+      .catch((error)=>{console.error(error)});
+    }
 }
