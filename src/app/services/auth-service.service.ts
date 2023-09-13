@@ -4,10 +4,12 @@ import {environment} from '../../environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
 
   constructor() { }
   getZendeskApiToken():string{
-    return environment.zendeskApiToken;
+    const user = environment.zendeskUserId;
+    const token = environment.zendeskApiToken;
+    return `${user}:${token}`
   }
 }
