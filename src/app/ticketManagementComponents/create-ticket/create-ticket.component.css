@@ -1,3 +1,14 @@
+.Title{
+    text-align: center;
+}
 .label{
     font-weight: bolder;
+}
+.create-ticket-form{
+    width: 50%;
+}
+@media (max-width: 767px) {
+    .create-ticket-form {
+      width: 100%; /* Adjust width for smaller screens */
+    }
 }
