@@ -13,7 +13,7 @@ import { AxiosService } from 'src/app/services/axios-service.service';
 export class CreateTicketComponent {
   urlPath= '/api/v2/tickets';
   description = '';
-  priority = '';
+  priority = 'low';
   subject = '';
   type='';
   tags='';
@@ -65,17 +65,20 @@ export class CreateTicketComponent {
     
     
     }
-
-    getTicket(){
-      this.axiosInstance.get(this.urlPath)
-      .then((response)=>{console.log(response.data.tickets[0])})
-      .catch((error)=>{console.error(error)})
+    setPriority(value:string){
+      this.priority=value;
     }
 
-    getUser(){
-      this.axiosInstance.get(`/api/v2/users/search.json?query=naren`)
-      .then((response)=>{console.log(response)})
-      .catch((error)=>{console.error(error)});
-    }
+    // getTicket(){
+    //   this.axiosInstance.get(this.urlPath)
+    //   .then((response)=>{console.log(response.data.tickets[0])})
+    //   .catch((error)=>{console.error(error)})
+    // }
+
+    // getUser(){
+    //   this.axiosInstance.get(`/api/v2/users/search.json?query=naren`)
+    //   .then((response)=>{console.log(response)})
+    //   .catch((error)=>{console.error(error)});
+    // }
    
 }

@@ -11,9 +11,9 @@
         <div class="container m-auto p-5 w-70">
             <div class="row">
                 <div class="col col-6">
-                    <label for="subject" class="form-label">Subject</label>
+                    <label for="subject" class="form-label label">Subject</label>
                 </div>
-                <div class="col col-6">{{subject}}</div>
+                
             </div>
             <div class="row">
                 <div class="col">
@@ -24,9 +24,9 @@
 
             <div class="row">
                 <div class="col col-6">
-                    <label for="description" class="form-label">Description</label>
+                    <label for="description" class="form-label label">Description</label>
                 </div>
-                <div class="col col-6">{{description}}</div>
+               
             </div>
             <div class="row">
                 <div class="col">
@@ -36,21 +36,29 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <label  class="form-label">Priority</label>
-                    <app-priority-slider></app-priority-slider>
+                <div class="col pb-2 mb-2">
+                    <label  class="form-label label">Priority</label> 
+                    <app-priority-slider (priorityEvent)="setPriority($event)"></app-priority-slider>
                       
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col col-6">
+                    <label class="form-label label" for="Type">Type</label>
+                </div>
+                
+            </div>
+            <div class="row">
+                
+            </div>
             <div class="d-flex justify-content-end my-2">
             <button [disabled]="!createTicketForm.form.valid" type="submit" class="btn btn-md btn-secondary" (click)="createTicket()">Create Ticket</button>
             </div>
         </div>
     </form>
     <button (click)="createTicket()">Create</button>
-    <button (click)="getTicket()">Get</button>
-    <button (click)="getUser()">Get User</button>
+    <!-- <button (click)="getTicket()">Get</button>
+    <button (click)="getUser()">Get User</button> -->
 
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
