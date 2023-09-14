@@ -9,6 +9,7 @@
     <form method="post" #createTicketForm="ngForm" (ngSubmit)="createTicket()">
 
         <div class="container m-auto p-5 w-70">
+            <!-- SUBJECT -->
             <div class="row">
                 <div class="col col-6">
                     <label for="subject" class="form-label label">Subject</label>
@@ -21,6 +22,8 @@
                     placeholder="Subject of the ticket" [(ngModel)]="subject" autocomplete="nope" required>
                 </div>
             </div>
+
+            <!-- DESCRIPTION -->
 
             <div class="row">
                 <div class="col col-6">
@@ -35,6 +38,7 @@
                     </textarea>
                 </div>
             </div>
+            <!-- PRIORITY -->
             <div class="row">
                 <div class="col pb-2 mb-2">
                     <label  class="form-label label">Priority</label> 
@@ -42,6 +46,7 @@
                       
                 </div>
             </div>
+            <!-- TYPE -->
             <div class="row">
                 <div class="col col-6">
                     <label class="form-label label" for="Type">Type</label>
@@ -52,6 +57,7 @@
                 <app-type-selector (typeSelectEvent)="setType($event)"></app-type-selector>
             </div>
 
+            <!-- TAGS -->
             <div class="row">
                 <div class="col col-6"><label class="form-label label">Tags</label></div>
             </div>
@@ -61,6 +67,23 @@
                 </div>
             </div>
 
+            <!-- HVAC PARTNER ID -->
+            <div class="row">
+                <div class="col col-6">
+                    <label for="hvac-partner-id" class="form-label label">HVAC Partner ID</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="hvac-partner-id" 
+                    class="form-control" [(ngModel)]="hvacPartnerID"
+                    required autocomplete="nope">
+                </div>
+            </div>
+
+            <!-- REQUESTER ID -->
+            
+            <!-- SUBMIT BUTTON -->
             <div class="d-flex justify-content-end my-2">
             <button [disabled]="!createTicketForm.form.valid" type="submit" class="btn btn-md btn-secondary" (click)="createTicket()">Create Ticket</button>
             </div>
