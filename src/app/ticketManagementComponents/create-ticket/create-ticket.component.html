@@ -49,16 +49,14 @@
                 
             </div>
             <div class="row">
-                <app-type-selector></app-type-selector>
+                <app-type-selector (typeSelectEvent)="setType($event)"></app-type-selector>
             </div>
             <div class="d-flex justify-content-end my-2">
             <button [disabled]="!createTicketForm.form.valid" type="submit" class="btn btn-md btn-secondary" (click)="createTicket()">Create Ticket</button>
             </div>
         </div>
     </form>
-    <button (click)="createTicket()">Create</button>
-    <!-- <button (click)="getTicket()">Get</button>
-    <button (click)="getUser()">Get User</button> -->
+ 
 
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>

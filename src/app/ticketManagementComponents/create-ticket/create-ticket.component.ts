@@ -15,7 +15,7 @@ export class CreateTicketComponent {
   description = '';
   priority = 'low';
   subject = '';
-  type='';
+  type='incident';
   tags='';
   requester_id='';
   
@@ -67,6 +67,9 @@ export class CreateTicketComponent {
     }
     setPriority(value:string){
       this.priority=value;
+    }
+    setType(value:string){
+      this.type=value;
     }
 
     // getTicket(){
