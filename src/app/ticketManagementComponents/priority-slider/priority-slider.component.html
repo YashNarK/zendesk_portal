@@ -1,0 +1,33 @@
+<div class="slider-container w-100 my-3">
+    
+    <div class="slider d-flex justify-content-center">
+        <div class="radio-button">
+            <input type="radio" name="slider" id="low" [checked]="priority==='low'" (click)="setPriority('low')">
+            <label for="low"></label>
+            <div class="radio-label">Low</div>
+        </div>
+        <hr class="divider">
+        
+
+        <div class="radio-button">
+            <input type="radio" name="slider" id="normal" [checked]="priority==='normal'" (click)="setPriority('normal')">
+            <label for="normal"></label>
+            <div class="radio-label">Normal</div>
+        </div>
+        <hr class="divider">
+
+        <div class="radio-button">
+            <input type="radio" name="slider" id="high" [checked]="priority==='high'" (click)="setPriority('high')">
+            <label for="high"></label>
+            <div class="radio-label">high</div>
+        </div>
+        <hr class="divider">
+
+        <div class="radio-button">
+            <input type="radio" name="slider" id="urgent" [checked]="priority==='urgent'" (click)="setPriority('urgent')">
+            <label for="urgent"></label>
+            <div class="radio-label">Urgent</div>
+        </div>
+
+    </div>
+</div>

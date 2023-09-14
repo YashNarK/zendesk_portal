@@ -1,0 +1,42 @@
+
+input[type="radio"]{
+    display: none;
+}
+label {
+    display: inline-block;
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    background-color: #ccc; /* Customize the background color */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  #low:checked +  label {
+    background-color: greenyellow; /* Customize the selected color */
+  }
+  #normal:checked + label {
+    background-color: blue; /* Customize the selected color */
+  }
+  #high:checked + label {
+    background-color: orangered; /* Customize the selected color */
+  }
+  #urgent:checked + label {
+    background-color: crimson; /* Customize the selected color */
+  }
+
+  .divider{
+    flex: 1;
+    height: 1px;
+    background-color: black;
+  }
+  .radio-button
+  {
+    width: 20px;
+    margin: auto;
+    overflow:visible;
+
+  }
+  .radio-label{
+    position:absolute;
+  }

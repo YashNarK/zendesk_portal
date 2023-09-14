@@ -18,6 +18,7 @@ export class CreateTicketComponent {
   type='';
   tags='';
   requester_id='';
+  
 
   hvacPartnerIDfieldID='13706916578066';
   hvacPartnerID='';
@@ -76,4 +77,5 @@ export class CreateTicketComponent {
       .then((response)=>{console.log(response)})
       .catch((error)=>{console.error(error)});
     }
+   
 }

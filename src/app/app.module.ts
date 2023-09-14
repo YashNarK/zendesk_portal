@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateTicketComponent } from './ticketManagementComponents/create-ticket/create-ticket.component';
+import { PrioritySliderComponent } from './ticketManagementComponents/priority-slider/priority-slider.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateTicketComponent
+    CreateTicketComponent,
+    PrioritySliderComponent
   ],
   imports: [
     BrowserModule,
