@@ -71,6 +71,9 @@ export class CreateTicketComponent {
     setType(value:string){
       this.type=value;
     }
+    setTag(value:string){
+      this.tags=value;
+    }
 
     // getTicket(){
     //   this.axiosInstance.get(this.urlPath)

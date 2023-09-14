@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { CreateTicketComponent } from './ticketManagementComponents/create-ticket/create-ticket.component';
 import { PrioritySliderComponent } from './ticketManagementComponents/priority-slider/priority-slider.component';
 import { TypeSelectorComponent } from './ticketManagementComponents/type-selector/type-selector.component';
+import { TagsSelectorComponent } from './ticketManagementComponents/tags-selector/tags-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateTicketComponent,
     PrioritySliderComponent,
-    TypeSelectorComponent
+    TypeSelectorComponent,
+    TagsSelectorComponent
   ],
   imports: [
     BrowserModule,
