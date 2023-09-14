@@ -1,0 +1,17 @@
+.type-btn{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.type-btn:hover{
+    border-color: blue;
+    border-width: 2px;
+}
+.type-idle{
+    background-color: white;
+    color: black;
+    
+}   
+.type-selected{
+    background-color: blue;
+    color: white;
+}

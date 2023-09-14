@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateTicketComponent } from './ticketManagementComponents/create-ticket/create-ticket.component';
 import { PrioritySliderComponent } from './ticketManagementComponents/priority-slider/priority-slider.component';
+import { TypeSelectorComponent } from './ticketManagementComponents/type-selector/type-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateTicketComponent,
-    PrioritySliderComponent
+    PrioritySliderComponent,
+    TypeSelectorComponent
   ],
   imports: [
     BrowserModule,

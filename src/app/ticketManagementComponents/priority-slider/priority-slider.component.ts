@@ -12,12 +12,10 @@ priority = 'low'
 ngOnInit() {
   // Emit the initial value when the component initializes
   this.priorityEvent.emit(this.priority);
-  console.log(this.priority)
 }
 
 setPriority(value:string){
   this.priority=value;
   this.priorityEvent.emit(this.priority);
-  console.log(this.priority)
 }
 }
