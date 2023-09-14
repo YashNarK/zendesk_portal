@@ -12,7 +12,7 @@ tags:string[]=[];
 
 
 setTags(event:Event){
-  
+    event.preventDefault();
     const enteredText = (event.target as HTMLInputElement).value.trim();
     if(enteredText){
       this.tags.unshift(enteredText.replace(/ /g,"_"));

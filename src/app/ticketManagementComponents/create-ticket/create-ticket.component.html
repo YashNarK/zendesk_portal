@@ -6,7 +6,7 @@
 
 <div class="create-ticket-form m-auto ">
     <div class="Title"> <h2>New Zendesk Ticket</h2></div>
-    <form method="post" #createTicketForm="ngForm" (ngSubmit)="createTicket()">
+    <form method="post" #createTicketForm="ngForm" >
 
         <div class="container m-auto p-5 w-70">
             <!-- SUBJECT -->
@@ -75,17 +75,26 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <input type="text" name="hvac-partner-id" 
+                    <input type="text" name="hvac-partner-id" placeholder="Provide HVAC Partner portal ID"
                     class="form-control" [(ngModel)]="hvacPartnerID"
                     required autocomplete="nope">
                 </div>
             </div>
 
             <!-- REQUESTER ID -->
-            
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-label label">Requested By</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <app-requester-id-selector (requesterEvent)="setRequesterId($event)"></app-requester-id-selector>
+                </div>
+            </div>
             <!-- SUBMIT BUTTON -->
             <div class="d-flex justify-content-end my-2">
-            <button [disabled]="!createTicketForm.form.valid" type="submit" class="btn btn-md btn-secondary" (click)="createTicket()">Create Ticket</button>
+            <button [disabled]="!createTicketForm.form.valid || requester_id==''" type="submit" class="btn btn-md btn-secondary" (click)="createTicket()">Create Ticket</button>
             </div>
         </div>
     </form>

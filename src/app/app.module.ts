@@ -7,6 +7,7 @@ import { CreateTicketComponent } from './ticketManagementComponents/create-ticke
 import { PrioritySliderComponent } from './ticketManagementComponents/priority-slider/priority-slider.component';
 import { TypeSelectorComponent } from './ticketManagementComponents/type-selector/type-selector.component';
 import { TagsSelectorComponent } from './ticketManagementComponents/tags-selector/tags-selector.component';
+import { RequesterIdSelectorComponent } from './ticketManagementComponents/requester-id-selector/requester-id-selector.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TagsSelectorComponent } from './ticketManagementComponents/tags-selecto
     CreateTicketComponent,
     PrioritySliderComponent,
     TypeSelectorComponent,
-    TagsSelectorComponent
+    TagsSelectorComponent,
+    RequesterIdSelectorComponent
   ],
   imports: [
     BrowserModule,

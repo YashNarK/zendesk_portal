@@ -20,38 +20,41 @@ export class CreateTicketComponent {
   requester_id='';
   
 
+  // constant ID for custom field. check in zendesk admin center
   hvacPartnerIDfieldID='13706916578066';
   hvacPartnerID='';
   
+  // constant ID for ticket form template. check in zendesk admin center
   ticketFormId='13656159167250';
 
-  payload =`{
-    "ticket": {
-      "comment": {
-        "body": "The smoke is very colorful."
-      },
-      "priority": "normal",
-      "subject": "No worries. All Good.",
-      "type":"problem",
-      "tags":"test HVAC_portal_ticket",
-      "requester_id":"13656143162386",
-      "custom_fields": [
-        {
-            "id": "${this.hvacPartnerIDfieldID}",
-            "value": "My HVAC partners id."
-        }
-    ],
-    "ticket_form_id":"${this.ticketFormId}"
-      
-
-    }
-  }`
+  payload =''
   constructor(private axiosService:AxiosService){}
 
   
     axiosInstance = this.axiosService.createAxiosInstance();
     createTicket(){
-
+      this.payload=`{
+        "ticket": {
+          "comment": {
+            "body": "${this.description.replace(/\n/g, '\\n')}"
+          },
+          "priority": "${this.priority}",
+          "subject": "${this.subject}",
+          "type":"${this.type}",
+          "tags":"${this.tags}",
+          "requester_id":"${this.requester_id}",
+          "custom_fields": [
+            {
+                "id": "${this.hvacPartnerIDfieldID}",
+                "value": "${this.hvacPartnerID}"
+            }
+        ],
+        "ticket_form_id":"${this.ticketFormId}"
+          
+    
+        }
+      }`
+      console.log(this.payload);
       this.axiosInstance.post(this.urlPath,this.payload,{
         method:'POST',
         headers:{'Content-Type':'application/json'}
@@ -73,6 +76,9 @@ export class CreateTicketComponent {
     }
     setTag(value:string){
       this.tags=value;
+    }
+    setRequesterId(value:number){
+      this.requester_id=(value as unknown) as string;
     }
 
     // getTicket(){
