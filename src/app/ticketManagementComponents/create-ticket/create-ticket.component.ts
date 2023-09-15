@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AxiosService } from 'src/app/services/axios-service.service';
+import { AppEventService } from 'src/app/services/app-event.service';
 
 @Component({
   selector: 'app-create-ticket',
@@ -27,7 +28,7 @@ export class CreateTicketComponent {
   ticketFormId:string;
   payload:String;
 
-  constructor(private axiosService:AxiosService){
+  constructor(private axiosService:AxiosService, private appEventService:AppEventService){
     this.urlPath= '/api/v2/tickets';
     this.description = '';
     this.priority = 'low';
@@ -56,6 +57,7 @@ export class CreateTicketComponent {
       this.hvacPartnerID='';
       this.ticketFormId='13656159167250';
       this.payload =''
+      this.appEventService.messageEventEmitter.emit('reset');
     }
 
     createTicket(){

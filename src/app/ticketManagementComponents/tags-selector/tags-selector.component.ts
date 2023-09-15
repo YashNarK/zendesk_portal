@@ -1,4 +1,5 @@
 import { Component,Output,EventEmitter } from '@angular/core';
+import { AppEventService } from 'src/app/services/app-event.service';
 
 @Component({
   selector: 'app-tags-selector',
@@ -6,6 +7,17 @@ import { Component,Output,EventEmitter } from '@angular/core';
   styleUrls: ['./tags-selector.component.css']
 })
 export class TagsSelectorComponent {
+
+  constructor(private appEventService:AppEventService){}
+
+  ngOnInit(){
+    this.appEventService.messageEventEmitter.subscribe((data:string)=>{
+      if(data==='reset'){
+        this.tags=[];
+      }
+    })
+  }
+  
 tags:string[]=[];
 @Output() tagsSelectEvent=new EventEmitter<string>();
 

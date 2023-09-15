@@ -1,4 +1,5 @@
 import { Component,Output,EventEmitter } from '@angular/core';
+import { AppEventService } from 'src/app/services/app-event.service';
 
 @Component({
   selector: 'app-type-selector',
@@ -9,10 +10,16 @@ export class TypeSelectorComponent {
 
   typeSelected = 'incident';
 
+  constructor(private appEventService:AppEventService){}
   @Output() typeSelectEvent = new EventEmitter<string>();
 
   ngOnInit(){
     this.typeSelectEvent.emit(this.typeSelected);
+    this.appEventService.messageEventEmitter.subscribe((data)=>{
+      if(data==='reset'){
+        this.typeSelected='incident';
+      }
+    })
   }
 
   typeSelect(event:MouseEvent){

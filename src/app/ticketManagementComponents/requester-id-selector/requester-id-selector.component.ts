@@ -1,5 +1,6 @@
 import { Component,Output,EventEmitter } from '@angular/core';
 import { AxiosService } from 'src/app/services/axios-service.service';
+import { AppEventService } from 'src/app/services/app-event.service';
 @Component({
   selector: 'app-requester-id-selector',
   templateUrl: './requester-id-selector.component.html',
@@ -8,7 +9,18 @@ import { AxiosService } from 'src/app/services/axios-service.service';
 export class RequesterIdSelectorComponent {
 
 key='';
-constructor(private axiosService:AxiosService){}
+constructor(private axiosService:AxiosService, private appEventService:AppEventService){}
+
+ngOnInit(){
+  this.appEventService.messageEventEmitter.subscribe((data:string)=>{
+    if(data==='reset'){
+      this.key='';
+      this.noMatch=false;
+      this.toSearch=false;
+      this.userList=[];
+    }
+  })
+}
 
 userList:{ id: number; name: string; email: string,role:string }[]= [];
 
