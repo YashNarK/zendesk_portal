@@ -11,27 +11,53 @@ import { AxiosService } from 'src/app/services/axios-service.service';
 // 13656143162386 - mindtree user, 13660615687954 - gmail user
 
 export class CreateTicketComponent {
-  urlPath= '/api/v2/tickets';
-  description = '';
-  priority = 'low';
-  subject = '';
-  type='incident';
-  tags='';
-  requester_id='';
-  
 
+
+  urlPath:string;
+  description:string;
+  priority:string;
+  subject:string;
+  type:string;
+  tags:string;
+  requester_id:string;
   // constant ID for custom field. check in zendesk admin center
-  hvacPartnerIDfieldID='13706916578066';
-  hvacPartnerID='';
-  
+  hvacPartnerIDfieldID:string;
+  hvacPartnerID:string;
   // constant ID for ticket form template. check in zendesk admin center
-  ticketFormId='13656159167250';
+  ticketFormId:string;
+  payload:String;
 
-  payload =''
-  constructor(private axiosService:AxiosService){}
+  constructor(private axiosService:AxiosService){
+    this.urlPath= '/api/v2/tickets';
+    this.description = '';
+    this.priority = 'low';
+    this.subject = '';
+    this.type='incident';
+    this.tags='';
+    this.requester_id='';
+    this.hvacPartnerIDfieldID='13706916578066';
+    this.hvacPartnerID='';
+    this.ticketFormId='13656159167250';
+    this.payload =''
+  }
 
   
     axiosInstance = this.axiosService.createAxiosInstance();
+
+    resetValues(){
+      this.urlPath= '/api/v2/tickets';
+      this.description = '';
+      this.priority = 'low';
+      this.subject = '';
+      this.type='incident';
+      this.tags='';
+      this.requester_id='';
+      this.hvacPartnerIDfieldID='13706916578066';
+      this.hvacPartnerID='';
+      this.ticketFormId='13656159167250';
+      this.payload =''
+    }
+
     createTicket(){
       this.payload=`{
         "ticket": {
@@ -81,16 +107,5 @@ export class CreateTicketComponent {
       this.requester_id=(value as unknown) as string;
     }
 
-    // getTicket(){
-    //   this.axiosInstance.get(this.urlPath)
-    //   .then((response)=>{console.log(response.data.tickets[0])})
-    //   .catch((error)=>{console.error(error)})
-    // }
 
-    // getUser(){
-    //   this.axiosInstance.get(`/api/v2/users/search.json?query=naren`)
-    //   .then((response)=>{console.log(response)})
-    //   .catch((error)=>{console.error(error)});
-    // }
-   
 }

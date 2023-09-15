@@ -92,9 +92,15 @@
                     <app-requester-id-selector (requesterEvent)="setRequesterId($event)"></app-requester-id-selector>
                 </div>
             </div>
-            <!-- SUBMIT BUTTON -->
+
+            
+            
             <div class="d-flex justify-content-end my-2">
-            <button [disabled]="!createTicketForm.form.valid || requester_id==''" type="submit" class="btn btn-md btn-secondary" (click)="createTicket()">Create Ticket</button>
+            <!-- RESET BUTTON -->
+            <button type="button" class="btn btn-md btn-warning mx-4" (click)="resetValues()">Reset</button>
+            <!-- SUBMIT BUTTON -->
+            <button [disabled]="!createTicketForm.form.valid || requester_id==''" 
+            type="submit" class="btn btn-md btn-secondary mx-4" (click)="createTicket()">Create Ticket</button>
             </div>
         </div>
     </form>
