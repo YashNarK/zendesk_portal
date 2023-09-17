@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AxiosService } from 'src/app/services/axios-service.service';
 import { AppEventService } from 'src/app/services/app-event.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-ticket',
@@ -27,8 +28,9 @@ export class CreateTicketComponent {
   // constant ID for ticket form template. check in zendesk admin center
   ticketFormId:string;
   payload:String;
+  
 
-  constructor(private axiosService:AxiosService, private appEventService:AppEventService){
+  constructor(private axiosService:AxiosService, private appEventService:AppEventService, private router:Router){
     this.urlPath= '/api/v2/tickets';
     this.description = '';
     this.priority = 'low';
@@ -39,7 +41,7 @@ export class CreateTicketComponent {
     this.hvacPartnerIDfieldID='13706916578066';
     this.hvacPartnerID='';
     this.ticketFormId='13656159167250';
-    this.payload =''
+    this.payload ='';
   }
 
   
@@ -56,8 +58,9 @@ export class CreateTicketComponent {
       this.hvacPartnerIDfieldID='13706916578066';
       this.hvacPartnerID='';
       this.ticketFormId='13656159167250';
-      this.payload =''
+      this.payload ='';
       this.appEventService.messageEventEmitter.emit('reset');
+
     }
 
     createTicket(){
@@ -82,13 +85,16 @@ export class CreateTicketComponent {
     
         }
       }`
-      console.log(this.payload);
+      
       this.axiosInstance.post(this.urlPath,this.payload,{
         method:'POST',
         headers:{'Content-Type':'application/json'}
       })
       .then((response)=>{
-       console.log(response)
+        console.log(response);
+        this.appEventService.setReceivedUrl(response.data.ticket.url);
+        this.appEventService.setReceivedTicketNo(response.data.ticket.url);
+        this.router.navigate(['/success-create-ticket']);
       })
       .catch((error)=>{
         console.error(error);

@@ -8,6 +8,8 @@ import { PrioritySliderComponent } from './ticketManagementComponents/priority-s
 import { TypeSelectorComponent } from './ticketManagementComponents/type-selector/type-selector.component';
 import { TagsSelectorComponent } from './ticketManagementComponents/tags-selector/tags-selector.component';
 import { RequesterIdSelectorComponent } from './ticketManagementComponents/requester-id-selector/requester-id-selector.component';
+import { SuccessMessageComponent } from './ticketManagementComponents/success-message/success-message.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { RequesterIdSelectorComponent } from './ticketManagementComponents/reque
     PrioritySliderComponent,
     TypeSelectorComponent,
     TagsSelectorComponent,
-    RequesterIdSelectorComponent
+    RequesterIdSelectorComponent,
+    SuccessMessageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
