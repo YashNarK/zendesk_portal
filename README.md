@@ -25,3 +25,15 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+##Environment Variables
+The environemnt folder is not version controlled to avoid exposing credentials.
+TO work with the project, after cloning, create an environment using command
+`ng g environment`
+and then the environment.ts (for production) must have the following data:
+export const environment = {
+    production:true,
+    zendeskApiToken:'YOUR API TOKEN HERE',
+    zendeskUserId:'YOUR USER EMAIL ID',
+};
