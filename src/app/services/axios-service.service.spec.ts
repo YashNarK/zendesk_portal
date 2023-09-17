@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AxiosService} from './axios-service.service';
 
-describe('AxiosServiceService', () => {
+describe('AxiosService', () => {
   let service: AxiosService;
 
   beforeEach(() => {
