@@ -30,7 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Environment Variables
 The environemnt folder is not version controlled to avoid exposing credentials.
 TO work with the project, after cloning, create an environment using command
-`ng g environment`
+`ng g environments`
 and then the environment.ts (for production) must have the following data:
 export const environment = {
     production:true,
