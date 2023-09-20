@@ -11,7 +11,7 @@ export class AxiosService {
 
   createAxiosInstance(){
     const instance = axios.create({
-      baseURL:'https://ltimindtree1994.zendesk.com/',
+      baseURL:this.authservice.getBaseUrl(),
     });
     // Add the authorization header using Basic Authentication
     instance.interceptors.request.use(

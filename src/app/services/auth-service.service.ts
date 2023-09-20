@@ -12,4 +12,8 @@ export class AuthService {
     const token = environment.zendeskApiToken;
     return `${user}/token:${token}`
   }
+
+  getBaseUrl():string{
+    return environment.zendeskBaseUrl;
+  }
 }

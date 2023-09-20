@@ -35,5 +35,6 @@ and then the environment.ts (for production) must have the following data:
 export const environment = {
     production:true,
     zendeskApiToken:'YOUR API TOKEN HERE',
-    zendeskUserId:'YOUR USER EMAIL ID',
+    zendeskUserId:'YOUR USER EMAIL ID HERE',
+    zendeskBaseUrl:'YOUR BASE URL HERE',
 };
